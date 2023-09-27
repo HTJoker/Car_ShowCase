@@ -25,11 +25,10 @@ const Hero = () => {
       <div className=" hero__image-container">
         <div className="hero__image">
           <Image
-            src="/assets/hero.png"
+            src="/hero.png"
             alt="Hero Image"
             fill
             className="object-contain"
-            priority
           />
         </div>
         <div className="hero__image-overlay" />
