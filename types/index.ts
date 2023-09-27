@@ -6,3 +6,12 @@ export type CustomButtonProps = {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType?: "button" | "submit";
 };
+
+export type SearchComapnyProps = {
+  company: string;
+  setCompany: (company: string) => void;
+};
+
+export type CustomFilterProps = {
+  title: string;
+};
