@@ -21,7 +21,7 @@ const SearchCompany = ({ company, setCompany }: SearchComapnyProps) => {
 
   return (
     <div className="search-manufacturer">
-      <Combobox>
+      <Combobox value={company} onChange={setCompany}>
         <div className=" relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image
@@ -46,14 +46,29 @@ const SearchCompany = ({ company, setCompany }: SearchComapnyProps) => {
             afterLeave={() => setQuery("")}
           >
             <Combobox.Options>
-              {filteredCompanies.length > 0 && query !== "" && (
+              {filteredCompanies.map((item) => (
                 <Combobox.Option
-                  value={query}
-                  className="search-manufacturer__option"
+                  key={item}
+                  className={({ active }) =>
+                    `search-manufacturer__option relative ${
+                      active ? "bg-primary-blue text-white" : "text-gray-900"
+                    }`
+                  }
+                  value={item}
                 >
-                  Create "{query}"
+                  {({ selected, active }) => (
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? "font-medium" : "font-normal"
+                        }`}
+                      >
+                        {item}
+                      </span>
+                    </>
+                  )}
                 </Combobox.Option>
-              )}
+              ))}
             </Combobox.Options>
           </Transition>
         </div>
