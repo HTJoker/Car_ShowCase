@@ -5,6 +5,9 @@ export type CustomButtonProps = {
   containerStyles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType?: "button" | "submit";
+  textStyles?: string;
+  rightIcon?: string;
+  isdisabled?: boolean;
 };
 
 export type SearchComapnyProps = {
