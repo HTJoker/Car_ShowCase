@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { CarProps } from "@types";
-import { calculateCarRent } from "@utils";
+import { calculateCarRent, generateCarImageUrl } from "@utils";
 import { CarDetails, CustomButton } from "@components";
 
 type CarCardProps = {
@@ -30,7 +30,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </p>
       <div className=" relative my-3 h-40 w-full object-contain">
         <Image
-          src="/hero.png"
+          src={generateCarImageUrl(car)}
           fill
           alt="car model"
           className="object-contain"

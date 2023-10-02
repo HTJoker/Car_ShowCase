@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import { CarProps } from "@types";
+import { generateCarImageUrl } from "@utils";
 
 type CarDetailsProps = {
   isOpen: boolean;
@@ -39,7 +40,7 @@ const CarDetails = ({ isOpen, closedModel, car }: CarDetailsProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="shadow-xl relative flex max-h-[90vh] w-full max-w-lg transform flex-col gap-5 overflow-y-auto rounded-2xl bg-white p-6 text-left transition-all">
+                <Dialog.Panel className="relative flex max-h-[90vh] w-full max-w-lg transform flex-col gap-5 overflow-y-auto rounded-2xl bg-white p-6 text-left shadow-xl transition-all">
                   <button
                     type="button"
                     onClick={closedModel}
@@ -56,7 +57,7 @@ const CarDetails = ({ isOpen, closedModel, car }: CarDetailsProps) => {
                   <div className="flex flex-1 flex-col gap-3">
                     <div className=" relative h-40 w-full rounded-lg bg-pattern bg-cover bg-center">
                       <Image
-                        src="/hero.png"
+                        src={generateCarImageUrl(car)}
                         fill
                         alt="car model"
                         className="object-contain"
@@ -65,7 +66,7 @@ const CarDetails = ({ isOpen, closedModel, car }: CarDetailsProps) => {
                     <div className="flex gap-3">
                       <div className="relative h-24 w-full flex-1 rounded-lg bg-primary-blue-100">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImageUrl(car, "29")}
                           fill
                           alt="car model"
                           className="object-contain"
@@ -73,7 +74,7 @@ const CarDetails = ({ isOpen, closedModel, car }: CarDetailsProps) => {
                       </div>
                       <div className="relative h-24 w-full flex-1 rounded-lg bg-primary-blue-100">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImageUrl(car, "33")}
                           fill
                           alt="car model"
                           className="object-contain"
@@ -81,7 +82,7 @@ const CarDetails = ({ isOpen, closedModel, car }: CarDetailsProps) => {
                       </div>
                       <div className="relative h-24 w-full flex-1 rounded-lg bg-primary-blue-100">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImageUrl(car, "13")}
                           fill
                           alt="car model"
                           className="object-contain"
@@ -102,7 +103,9 @@ const CarDetails = ({ isOpen, closedModel, car }: CarDetailsProps) => {
                           <h4 className="capitalize text-grey">
                             {key.split("_").join(" ")}
                           </h4>
-                          <p className="text-black-100 font-semibold">{value}</p>
+                          <p className="font-semibold text-black-100">
+                            {value}
+                          </p>
                         </div>
                       ))}
                     </div>

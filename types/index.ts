@@ -15,8 +15,14 @@ export type SearchComapnyProps = {
   setCompany: (company: string) => void;
 };
 
+export type OptionProps = {
+  title: string;
+  value: string;
+};
+
 export type CustomFilterProps = {
   title: string;
+  options: OptionProps[];
 };
 
 export type CarProps = {
@@ -34,3 +40,10 @@ export type CarProps = {
   year: number;
 };
 
+export type FilterProps = {
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string;
+};
