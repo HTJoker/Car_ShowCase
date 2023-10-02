@@ -33,3 +33,4 @@ export type CarProps = {
   transmission: string;
   year: number;
 };
+
