@@ -47,3 +47,8 @@ export type FilterProps = {
   limit: number;
   model: string;
 };
+
+export type ShowMoreProps = {
+  pageNumber: number;
+  isNext: boolean;
+};
