@@ -21,7 +21,7 @@ const SearchCompany = ({ company, setCompany }: SearchComapnyProps) => {
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={query} onChange={setQuery}>
+      <Combobox value={company} onChange={setCompany}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image
@@ -33,15 +33,12 @@ const SearchCompany = ({ company, setCompany }: SearchComapnyProps) => {
             />
           </Combobox.Button>
 
-          {/* Input field for searching */}
           <Combobox.Input
             className="search-manufacturer__input"
             displayValue={(item: string) => item}
-            onChange={(event) => setQuery(event.target.value)} // Update the search query when the input changes
             placeholder="Volkswagen..."
           />
 
-          {/* Transition for displaying the options */}
           <Transition
             as={Fragment} // group multiple elements without introducing an additional DOM node i.e., <></>
             leave="transition ease-in duration-100"
@@ -79,7 +76,6 @@ const SearchCompany = ({ company, setCompany }: SearchComapnyProps) => {
                           {item}
                         </span>
 
-                        {/* Show an active blue background color if the option is selected */}
                         {selected ? (
                           <span
                             className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
