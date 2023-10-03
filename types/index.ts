@@ -7,7 +7,7 @@ export type CustomButtonProps = {
   btnType?: "button" | "submit";
   textStyles?: string;
   rightIcon?: string;
-  isdisabled?: boolean;
+  isDisabled?: boolean;
 };
 
 export type SearchComapnyProps = {

@@ -23,8 +23,8 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e);
-          handleUpdateParams(e);
+          setSelected(e); // Update the selected option in state
+          handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
         }}
       >
         <div className="relative z-10 w-fit">
@@ -35,11 +35,11 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
               width={20}
               height={20}
               className="ml-4 object-contain"
-              alt="chevron up down"
+              alt="chevron_up-down"
             />
           </Listbox.Button>
           <Transition
-            as={Fragment} // group multiple elements without introducing an additional DOM node i.e., <Transition></>
+            as={Fragment}
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
@@ -48,21 +48,23 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
               {options.map((option) => (
                 <Listbox.Option
                   key={option.title}
-                  value={option}
                   className={({ active }) =>
                     `relative cursor-default select-none px-4 py-2 ${
                       active ? "bg-primary-blue text-white" : "text-gray-900"
                     }`
                   }
+                  value={option}
                 >
                   {({ selected }) => (
-                    <span
-                      className={`block truncate ${
-                        selected ? "font-medium" : "font-normal"
-                      }`}
-                    >
-                      {option.title}
-                    </span>
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? "font-medium" : "font-normal"
+                        }`}
+                      >
+                        {option.title}
+                      </span>
+                    </>
                   )}
                 </Listbox.Option>
               ))}

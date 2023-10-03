@@ -1,23 +1,13 @@
-import { Hero, CustomFilter, SearchBar, CarCard, ShowMore } from "@components";
-import { fuels, yearsOfProduction } from "@constants/constants";
 import getAllCars from "@utils";
+import { FilterProps } from "@types";
+import { fuels, yearsOfProduction } from "@constants/constants";
+import { CarCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
 
-type Car = {
-  city_mpg: number;
-  class: string;
-  combination_mpg: number;
-  cylinders: number;
-  displacement: number;
-  drive: string;
-  fuel_type: string;
-  highway_mpg: number;
-  make: string;
-  model: string;
-  transmission: string;
-  year: number;
-};
-
-export default async function Home({ searchParams }: { searchParams: any }) {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: FilterProps;
+}) {
   const allCars = await getAllCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
