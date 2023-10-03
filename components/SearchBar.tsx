@@ -29,6 +29,7 @@ const SearchBar = () => {
 
     if (company.trim() === "" && model.trim() === "") {
 
+
       return alert("Please provide some input");
 
     }
