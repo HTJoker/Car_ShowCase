@@ -23,8 +23,8 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e); // Update the selected option in state
-          handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
+          setSelected(e); 
+          handleUpdateParams(e); 
         }}
       >
         <div className="relative z-10 w-fit">
@@ -39,7 +39,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             />
           </Listbox.Button>
           <Transition
-            as={Fragment}
+            as={Fragment} 
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"

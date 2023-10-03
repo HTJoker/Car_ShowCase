@@ -24,19 +24,6 @@ const SearchBar = () => {
 
   const router = useRouter();
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (company.trim() === "" && model.trim() === "") {
-
-
-      return alert("Please provide some input");
-
-    }
-
-    updateSearchParams(model.toLowerCase(), company.toLowerCase());
-  };
-
   const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
@@ -59,6 +46,16 @@ const SearchBar = () => {
     router.push(newPathname);
   };
 
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (company.trim() === "" && model.trim() === "") {
+      return alert("Please provide some input");
+    }
+
+    updateSearchParams(model.toLowerCase(), company.toLowerCase());
+  };
+
   return (
     <form className="searchbar" onSubmit={handleSearch}>
       <div className="searchbar__item">
@@ -68,17 +65,17 @@ const SearchBar = () => {
       <div className="searchbar__item">
         <Image
           src="/model-icon.png"
-          alt="car model"
           width={25}
           height={25}
           className="absolute ml-4 h-[20px] w-[20px]"
+          alt="car model"
         />
         <input
           type="text"
           name="model"
           value={model}
           onChange={(e) => setModel(e.target.value)}
-          placeholder="Tiguan"
+          placeholder="Tiguan..."
           className="searchbar__input"
         />
         <SearchButton otherClasses="sm:hidden" />
