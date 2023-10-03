@@ -3,7 +3,11 @@ import { FilterProps } from "@types";
 import { fuels, yearsOfProduction } from "@constants/constants";
 import { CarCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
 
-export default async function Home({ searchParams }: {searchParams: FilterProps}) {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: FilterProps;
+}) {
   const allCars = await getAllCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
