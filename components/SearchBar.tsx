@@ -27,8 +27,8 @@ const SearchBar = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (company === "" && model === "") {
-      console.log("Please enter a company or model");
+    if (company.trim() === "" && model.trim() === "") {
+      return alert("Please provide some input");
     }
 
     updateSearchParams(model.toLowerCase(), company.toLowerCase());
@@ -37,11 +37,17 @@ const SearchBar = () => {
   const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
-    if (model) searchParams.set("model", model);
-    else searchParams.delete("model");
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model");
+    }
 
-    if (model) searchParams.set("manufacturer", manufacturer);
-    else searchParams.delete("manufacturer");
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer");
+    }
 
     const newPathname = `${
       window.location.pathname

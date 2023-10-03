@@ -1,23 +1,9 @@
-import { Hero, CustomFilter, SearchBar, CarCard } from "@components";
-import { fuels, yearsOfProduction } from "@constants/constants";
 import getAllCars from "@utils";
+import { FilterProps } from "@types";
+import { fuels, yearsOfProduction } from "@constants/constants";
+import { CarCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
 
-type Car = {
-  city_mpg: number;
-  class: string;
-  combination_mpg: number;
-  cylinders: number;
-  displacement: number;
-  drive: string;
-  fuel_type: string;
-  highway_mpg: number;
-  make: string;
-  model: string;
-  transmission: string;
-  year: number;
-};
-
-export default async function Home({ searchParams }: { searchParams: any }) {
+export default async function Home({ searchParams }: {searchParams: FilterProps}) {
   const allCars = await getAllCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
@@ -31,28 +17,36 @@ export default async function Home({ searchParams }: { searchParams: any }) {
   return (
     <main className="overflow-hidden">
       <Hero />
+
       <div className="padding-x padding-y max-width mt-12" id="discover">
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
-          <p>Explore the cars you might like</p>
+          <p>Explore out cars you might like</p>
         </div>
 
         <div className="home__filters">
           <SearchBar />
+
           <div className="home__filter-container">
             <CustomFilter title="fuel" options={fuels} />
             <CustomFilter title="year" options={yearsOfProduction} />
           </div>
         </div>
+
         {!isDataEmpty ? (
           <section>
             <div className="home__cars-wrapper">
-              {allCars?.map((car, index) => <CarCard car={car} key={index} />)}
+              {allCars?.map((car) => <CarCard car={car} />)}
             </div>
+
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
           <div className="home__error-container">
-            <h2 className="text-blac text-xl font-bold">Oops, no cars</h2>
+            <h2 className="text-xl font-bold text-black">Oops, no results</h2>
             <p>{allCars?.message}</p>
           </div>
         )}

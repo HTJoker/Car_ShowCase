@@ -67,24 +67,27 @@ const CarDetails = ({ isOpen, closedModel, car }: CarDetailsProps) => {
                       <div className="relative h-24 w-full flex-1 rounded-lg bg-primary-blue-100">
                         <Image
                           src={generateCarImageUrl(car, "29")}
-                          fill
                           alt="car model"
+                          fill
+                          priority
                           className="object-contain"
                         />
                       </div>
                       <div className="relative h-24 w-full flex-1 rounded-lg bg-primary-blue-100">
                         <Image
                           src={generateCarImageUrl(car, "33")}
-                          fill
                           alt="car model"
+                          fill
+                          priority
                           className="object-contain"
                         />
                       </div>
                       <div className="relative h-24 w-full flex-1 rounded-lg bg-primary-blue-100">
                         <Image
                           src={generateCarImageUrl(car, "13")}
-                          fill
                           alt="car model"
+                          fill
+                          priority
                           className="object-contain"
                         />
                       </div>
