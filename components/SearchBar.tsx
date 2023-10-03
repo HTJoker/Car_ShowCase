@@ -28,7 +28,10 @@ const SearchBar = () => {
     e.preventDefault();
 
     if (company.trim() === "" && model.trim() === "") {
+
+
       return alert("Please provide some input");
+
     }
 
     updateSearchParams(model.toLowerCase(), company.toLowerCase());
