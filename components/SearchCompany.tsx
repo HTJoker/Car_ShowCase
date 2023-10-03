@@ -23,7 +23,6 @@ const SearchCompany = ({ company, setCompany }: SearchComapnyProps) => {
     <div className="search-manufacturer">
       <Combobox value={query} onChange={setQuery}>
         <div className="relative w-full">
-          {/* Button for the combobox. Click on the icon to see the complete dropdown */}
           <Combobox.Button className="absolute top-[14px]">
             <Image
               src="/car-logo.svg"
@@ -58,9 +57,7 @@ const SearchCompany = ({ company, setCompany }: SearchComapnyProps) => {
                 <Combobox.Option
                   value={query}
                   className="search-manufacturer__option"
-                >
-                  Create "{query}"
-                </Combobox.Option>
+                ></Combobox.Option>
               ) : (
                 filteredCompanies.map((item) => (
                   <Combobox.Option
