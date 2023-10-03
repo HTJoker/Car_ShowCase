@@ -10,7 +10,6 @@ import { updateSearchParams } from "@utils";
 
 
 import CustomButton from "./CustomButton";
-import { updateSearchParams } from "@utils";
 
 
 const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
